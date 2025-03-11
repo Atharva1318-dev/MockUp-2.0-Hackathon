@@ -18,6 +18,13 @@ const ModelCarousel = () => {
         "Experience unparalleled sound quality with these wireless headphones, engineered for immersive audio and ultimate comfort.",
       price: "₹8,699",
     },
+    {
+      title: "Samsung Gear VR",
+      url: "https://sketchfab.com/models/55a9b75a90ad4b65891668d850a8dd36/embed?autostart=1&ui_infos=0",
+      description:
+        "Step into the world of virtual reality with the Samsung Gear VR, delivering immersive experiences and stunning visuals.",
+      price: "₹19,999",
+    },
   ];
 
   // State to track the current active model
