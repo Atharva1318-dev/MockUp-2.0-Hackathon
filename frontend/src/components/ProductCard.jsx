@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 
 function ProductCard() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-card text-white">
       <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row items-center justify-between gap-12">
         {/* Left Content */}
         <div className="flex-1 space-y-6">

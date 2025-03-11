@@ -185,7 +185,7 @@ const CustomerReviews = () => {
   ];
   
   return (
-    <div className="bg-black text-white py-16 px-6 md:px-8">
+    <div className="bg-card text-white py-16 px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header - Matching the blog section style */}
         <h1 ref={titleRef} className="section-title text-5xl md:text-6xl font-bold mb-16 text-center tracking-wide">

@@ -8,7 +8,7 @@ const products = [
     price: 99.99,
     rating: 4.5,
     image:
-      "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=500",
+      "../src/assets/headphone-13-600x600.png?auto=format&fit=crop&q=80&w=500",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const products = [
     price: 215.99,
     rating: 5,
     image:
-      "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&q=80&w=500",
+      "../src/assets/computer-mouse-top-view-isolated-transparent-background-generative-ai_667511-5593-removebg-preview.png?auto=format&fit=crop&q=80&w=500",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const products = [
     price: 115.25,
     rating: 5,
     image:
-      "https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&q=80&w=500",
+      "../src/assets/product-9-1.png?auto=format&fit=crop&q=90&w=600",
   },
   {
     id: 4,
@@ -32,14 +32,14 @@ const products = [
     price: 85.99,
     rating: 4.5,
     image:
-      "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&q=80&w=500",
+      "../src/assets/generation-white-game-controller-isolated-black-background-with-colored-lights-illuminating-it-close-up-selective-focus_442713-2607-removebg-preview.png?auto=format&fit=crop&q=80&w=500",
   },
 ];
 
 const itemsPerPage = 4;
 const totalPages = Math.ceil(products.length / itemsPerPage);
 
-const ProductSlider = () => {
+const TopRated = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Set the page background color
@@ -63,13 +63,12 @@ const ProductSlider = () => {
     Array.from({ length: 5 }).map((_, index) => (
       <span
         key={index}
-        className={`text-xl ${
-          index < Math.floor(rating)
-            ? 'text-pink-500'
-            : index < rating
+        className={`text-xl ${index < Math.floor(rating)
+          ? 'text-pink-500'
+          : index < rating
             ? 'text-pink-500 opacity-50'
             : 'text-gray-400'
-        }`}
+          }`}
       >
         ★
       </span>
@@ -135,9 +134,8 @@ const ProductSlider = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                currentSlide === index ? 'bg-pink-500 w-8' : 'bg-gray-600'
-              }`}
+              className={`w-2 h-2 rounded-full transition-all ${currentSlide === index ? 'bg-pink-500 w-8' : 'bg-gray-600'
+                }`}
             />
           ))}
         </div>
@@ -146,4 +144,4 @@ const ProductSlider = () => {
   );
 };
 
-export default ProductSlider;
+export default TopRated;

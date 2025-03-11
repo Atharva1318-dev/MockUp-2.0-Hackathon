@@ -53,7 +53,7 @@ export default function Categories() {
     ]
 
     return (
-        <div className="min-h-screen bg-[#111] text-white p-11">
+        <div className="min-h-screen bg-card text-white p-8">
             <h1 className="text-center text-4xl font-bold mb-12 font-['Orbitron']">CATEGORIES</h1>
 
             {/* Categories Grid */}
