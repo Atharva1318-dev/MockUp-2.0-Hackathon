@@ -1,4 +1,9 @@
 @import "tailwindcss";
+*{
+    font-family: "Orbitron", sans-serif;
+font-optical-sizing: auto;
+font-style: normal;
+}
 @layer components {
     .bg-card {
         background-color: #0a0a0a;

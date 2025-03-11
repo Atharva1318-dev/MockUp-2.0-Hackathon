@@ -7,6 +7,7 @@ import blog4 from "/src/assets/blog4.jpg";
 
 const BlogSection = () => {
   const sectionRef = useRef(null);
+  const titleRef = useRef(null);
   const cardsRef = useRef([]);
 
   // Reset refs on each render
@@ -22,18 +23,17 @@ const BlogSection = () => {
   };
 
   useEffect(() => {
-    if (!sectionRef.current) return;
-    
-    const titleElement = sectionRef.current.querySelector(".section-title");
-    
-    if (!titleElement) return;
+    if (!sectionRef.current || !titleRef.current) return;
 
-    // Create animation timeline
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-    tl.from(titleElement, {
+    
+    tl.from(titleRef.current, {
       y: -30,
       opacity: 0,
       duration: 0.8,
+      onComplete: () => {
+        titleRef.current.style.opacity = "1"; // Ensure visibility after animation
+      }
     })
     .from(cardsRef.current, {
       y: 50,
@@ -41,8 +41,7 @@ const BlogSection = () => {
       stagger: 0.15,
       duration: 0.6,
     }, "-=0.3");
-      
-    // Cleanup function to kill animations when component unmounts
+
     return () => {
       tl.kill();
     };
@@ -55,12 +54,10 @@ const BlogSection = () => {
       boxShadow: "0 10px 25px rgba(142, 0, 190, 0.3)", 
       duration: 0.3 
     });
-    
-    const cardImage = card.querySelector(".card-image");
+
     const cardTitle = card.querySelector(".card-title");
     const cardButton = card.querySelector(".card-button");
-    
-    if (cardImage) gsap.to(cardImage, { scale: 1.05, duration: 0.4 });
+
     if (cardTitle) gsap.to(cardTitle, { color: "#d946ef", duration: 0.3 });
     if (cardButton) gsap.to(cardButton, { color: "#d946ef", duration: 0.3 });
   };
@@ -72,12 +69,10 @@ const BlogSection = () => {
       boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)", 
       duration: 0.3 
     });
-    
-    const cardImage = card.querySelector(".card-image");
+
     const cardTitle = card.querySelector(".card-title");
     const cardButton = card.querySelector(".card-button");
-    
-    if (cardImage) gsap.to(cardImage, { scale: 1, duration: 0.4 });
+
     if (cardTitle) gsap.to(cardTitle, { color: "white", duration: 0.3 });
     if (cardButton) gsap.to(cardButton, { color: "white", duration: 0.3 });
   };
@@ -114,10 +109,10 @@ const BlogSection = () => {
   ];
 
   return (
-    <div ref={sectionRef} className="bg-card text-white py-16 px-6 md:px-8">
+    <div ref={sectionRef} className="bg-card text-white min-h-screen py-16 px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
-        {/* Header - Matching the site's existing header style */}
-        <h1 className="section-title text-5xl md:text-6xl font-bold mb-16 text-center tracking-wide">
+        {/* Header */}
+        <h1 ref={titleRef} className="section-title text-5xl md:text-6xl font-bold mb-16 text-center tracking-wide opacity-100">
           Our Blog
         </h1>
 
@@ -130,18 +125,14 @@ const BlogSection = () => {
               className="rounded-lg overflow-hidden bg-gray-800 shadow-lg transition-all duration-300 cursor-pointer"
               onMouseEnter={(e) => handleMouseEnter(e.currentTarget)}
               onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
-            >{/* Card Image Placeholder with gradient and actual image */}
-            <div className={`card-image h-48 bg-gradient-to-br ${post.bgColor} relative overflow-hidden`}>
-              <img 
-                src={post.src} 
-                alt={post.title} 
-                className="w-full h-full object-cover" 
-              />
-              <div className="absolute top-3 left-3 card-date bg-black bg-opacity-70 text-white px-3 py-1 rounded text-sm">
-                {post.date}
+            >
+              {/* Card Image */}
+              <div className="card-image h-48 bg-gradient-to-br relative overflow-hidden">
+                <img src={post.src} alt={post.title} className="w-full h-full object-cover" />
+                <div className="absolute top-3 left-3 card-date bg-black bg-opacity-70 text-white px-3 py-1 rounded text-sm">
+                  {post.date}
+                </div>
               </div>
-            </div>
-            
 
               {/* Card Content */}
               <div className="p-5">
@@ -151,13 +142,7 @@ const BlogSection = () => {
                 <div className="flex items-center">
                   <button className="card-button text-sm font-medium flex items-center text-white hover:text-fuchsia-500 transition-colors">
                     Read More
-                    <svg
-                      className="ml-2 w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
                   </button>

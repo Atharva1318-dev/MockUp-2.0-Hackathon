@@ -75,7 +75,8 @@ const TopRated = () => {
     ));
 
   return (
-    <div className="w-full max-w-screen-xl mx-auto px-4 py-12">
+    <div className="min-h-screen bg-card">
+    <div className="w-full max-w-screen-xl mx-auto px-4 py-12 ">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-white mb-4">Top Rated Products</h2>
         <p className="text-gray-400">
@@ -140,6 +141,7 @@ const TopRated = () => {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 };
