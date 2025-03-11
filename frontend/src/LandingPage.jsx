@@ -17,10 +17,10 @@ import ScrollAnimationComponent from "./components/ScrollAnimationComponent.jsx"
 export default function LandingPage() {
     return (
         <>
-            {/* <Hero></Hero>
+            <Hero></Hero>
             <Story></Story>
             <WeeklyDeals></WeeklyDeals>
-            <ScrollAnimationComponent></ScrollAnimationComponent> */}
+            <ScrollAnimationComponent></ScrollAnimationComponent>
             <ProductCard></ProductCard>
             <Categories></Categories>
             <CustomerReviews></CustomerReviews>
