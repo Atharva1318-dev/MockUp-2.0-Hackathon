@@ -8,7 +8,7 @@ const ScrollAnimationComponent = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // Use gsap.context to scope selectors to this component
+    // Scope selectors to this component using gsap.context
     const ctx = gsap.context(() => {
       const scrollSections = document.querySelectorAll('.scroll-section');
 
@@ -31,7 +31,6 @@ const ScrollAnimationComponent = () => {
         });
 
         // Create timeline for scroll-triggered animations.
-        // Use (items.length - 1) so we don't reference a non-existent next item.
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: section,
@@ -40,12 +39,11 @@ const ScrollAnimationComponent = () => {
             end: () => `+=${(items.length - 1) * 100}%`,
             scrub: 1,
             invalidateOnRefresh: true,
-            // markers: true, // Uncomment for debugging layout/trigger points
+            // markers: true,
           },
           defaults: { ease: 'none' },
         });
 
-        // Animate each item and bring in the next one
         for (let i = 0; i < items.length - 1; i++) {
           timeline.to(items[i], {
             scale: 0.9,
@@ -60,26 +58,11 @@ const ScrollAnimationComponent = () => {
       });
     }, containerRef);
 
-    // Cleanup animations on unmount
     return () => ctx.revert();
   }, []);
 
   return (
     <main ref={containerRef} className="main-wrapper">
-      {/* Section: Vertical Scroll Intro */}
-      <div className="overflow-hidden">
-        <div className="max-w-4xl mx-auto py-8">
-          <div className="max-w-5xl mx-auto">
-            <h1
-              className="text-5xl h-[50vh] flex items-center justify-center"
-              style={{ textShadow: '0.04em 0.04rem 0 #81b5ab' }}
-            >
-              Vertical Scroll Is Cool!
-            </h1>
-          </div>
-        </div>
-      </div>
-
       {/* Vertical Scroll Section */}
       <div className="scroll-section vertical-section overflow-hidden">
         <div className="wrapper h-screen">
@@ -87,130 +70,106 @@ const ScrollAnimationComponent = () => {
             role="list"
             className="flex justify-start items-center h-full relative p-[0.2rem]"
           >
-            {/* Item 1 */}
+            {/* Vertical Item 1: Gaming Headphones */}
             <div
               role="listitem"
-              className="item w-screen h-full flex absolute inset-0 shadow-[0_8px_24px_rgba(149,157,165,0.2)] overflow-hidden"
+              className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content bg-white text-gray-800 flex flex-col justify-center items-start p-12 relative w-1/2">
-                <h2 className="item_number text-xl h-12 w-12 mb-2 rounded-full bg-black text-white flex items-center justify-center font-normal absolute top-24 left-12">
-                  1
-                </h2>
+              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
                 <h2 className="text-2xl font-bold mb-4">
-                  Wildlife in Action: A Glimpse into Nature’s Daily Drama
+                  Immersive Audio Experience
                 </h2>
                 <p>
-                  Witness the fascinating lives of animals in their natural
-                  habitats, from playful cubs to stealthy predators.
+                  Elevate your game with our top-of-the-line gaming headphones that deliver crystal-clear sound and deep bass.
                 </p>
+                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+                  Shop Now
+                </button>
               </div>
-              <video
-                src="https://videos.pexels.com/video-files/4763824/4763824-uhd_2560_1440_24fps.mp4"
-                loading="lazy"
-                autoPlay
-                muted
-                loop
-                className="item_media object-cover w-1/2 h-full"
+              <img
+                src="https://source.unsplash.com/800x600/?gaming,headphones"
+                alt="Gaming Headphones"
+                className="item_media z-0 object-cover w-1/2 h-full"
               />
             </div>
 
-            {/* Item 2 */}
+            {/* Vertical Item 2: Gaming Laptop (unchanged) */}
             <div
               role="listitem"
-              className="item w-screen h-full flex absolute inset-0 shadow-[0_8px_24px_rgba(149,157,165,0.2)] overflow-hidden"
+              className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content bg-white text-gray-800 flex flex-col justify-center items-start p-12 relative w-1/2">
-                <h2 className="item_number text-xl h-12 w-12 mb-2 rounded-full bg-black text-white flex items-center justify-center font-normal absolute top-24 left-12">
-                  2
-                </h2>
+              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
                 <h2 className="text-2xl font-bold mb-4">
-                  The Changing Seasons: Nature’s Everlasting Cycle
+                  Power-Packed Gaming Laptop
                 </h2>
                 <p>
-                  Experience the beauty of nature's transitions, from blooming
-                  spring flowers to snowy winter landscapes.
+                  Experience ultimate performance with our gaming laptops featuring fast processors and advanced graphics.
                 </p>
+                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+                  Shop Now
+                </button>
               </div>
-              <video
-                src="https://videos.pexels.com/video-files/3214448/3214448-uhd_2560_1440_25fps.mp4"
-                loading="lazy"
-                autoPlay
-                muted
-                loop
-                className="item_media object-cover w-1/2 h-full"
+              <img
+                src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Gaming Laptop"
+                className="item_media z-0 object-cover w-1/2 h-full"
               />
             </div>
 
-            {/* Item 3 */}
+            {/* Vertical Item 3: Gaming Keyboard */}
             <div
               role="listitem"
-              className="item w-screen h-full flex absolute inset-0 shadow-[0_8px_24px_rgba(149,157,165,0.2)] overflow-hidden"
+              className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content bg-white text-gray-800 flex flex-col justify-center items-start p-12 relative w-1/2">
-                <h2 className="item_number text-xl h-12 w-12 mb-2 rounded-full bg-black text-white flex items-center justify-center font-normal absolute top-24 left-12">
-                  3
-                </h2>
+              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
                 <h2 className="text-2xl font-bold mb-4">
-                  Guardians of Nature: Protecting Our Planet’s Future
+                  Precision Gaming Keyboard
                 </h2>
                 <p>
-                  Learn about the importance of conservation and how we can work
-                  together to preserve the beauty of nature for generations to
-                  come.
+                  Enjoy responsive keys, customizable RGB lighting, and tactile feedback to gain the competitive edge.
                 </p>
+                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+                  Shop Now
+                </button>
               </div>
-              <video
-                src="https://videos.pexels.com/video-files/4328514/4328514-uhd_2560_1440_30fps.mp4"
-                loading="lazy"
-                autoPlay
-                muted
-                loop
-                className="item_media object-cover w-1/2 h-full"
+              <img
+                src="https://source.unsplash.com/800x600/?gaming,keyboard"
+                alt="Gaming Keyboard"
+                className="item_media z-0 object-cover w-1/2 h-full"
               />
             </div>
 
-            {/* Item 4 */}
+            {/* Vertical Item 4: Gaming Mouse */}
             <div
               role="listitem"
-              className="item w-screen h-full flex absolute inset-0 shadow-[0_8px_24px_rgba(149,157,165,0.2)] overflow-hidden"
+              className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content bg-white text-gray-800 flex flex-col justify-center items-start p-12 relative w-1/2">
-                <h2 className="item_number text-xl h-12 w-12 mb-2 rounded-full bg-black text-white flex items-center justify-center font-normal absolute top-24 left-12">
-                  4
-                </h2>
+              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
                 <h2 className="text-2xl font-bold mb-4">
-                  Astral Aesthetics: Portraits from the Infinite
+                  Ergonomic Gaming Mouse
                 </h2>
                 <p>
-                  Experience the boundless beauty of the cosmos through striking
-                  portraits that capture its infinite aesthetic appeal.
+                  Gain ultimate control with our high-DPI, customizable gaming mouse designed for precision.
                 </p>
+                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+                  Shop Now
+                </button>
               </div>
-              <video
-                src="https://videos.pexels.com/video-files/2871916/2871916-hd_1920_1080_30fps.mp4"
-                loading="lazy"
-                autoPlay
-                muted
-                loop
-                className="item_media object-cover w-1/2 h-full"
+              <img
+                src="https://source.unsplash.com/800x600/?gaming,mouse"
+                alt="Gaming Mouse"
+                className="item_media z-0 object-cover w-1/2 h-full"
               />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Section: Horizontal Scroll Intro */}
-      <div className="overflow-hidden">
-        <div className="max-w-4xl mx-auto py-8">
-          <div className="max-w-5xl mx-auto">
-            <h1
-              className="text-5xl h-[50vh] flex items-center justify-center"
-              style={{ textShadow: '0.04em 0.04rem 0 #81b5ab' }}
-            >
-              But Horizontal Scroll Is Also Cool!
-            </h1>
-          </div>
-        </div>
+      {/* Transition Page Between Scroll Types */}
+      <div className="h-screen flex items-center justify-center bg-gray-900">
+        <h2 className="text-4xl font-bold text-white">
+          Explore More Gaming Essentials
+        </h2>
       </div>
 
       {/* Horizontal Scroll Section */}
@@ -220,114 +179,95 @@ const ScrollAnimationComponent = () => {
             role="list"
             className="flex justify-start items-center h-full relative p-[0.2rem]"
           >
-            {/* Horizontal Item 1 */}
+            {/* Horizontal Item 1: Gaming Monitor */}
             <div
               role="listitem"
-              className="item w-screen h-full flex absolute inset-0 shadow-[0_8px_24px_rgba(149,157,165,0.2)] overflow-hidden"
+              className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content bg-white text-gray-800 flex flex-col justify-center items-start p-12 relative w-1/2">
-                <h2 className="item_number text-xl h-12 w-12 mb-2 rounded-full bg-black text-white flex items-center justify-center font-normal absolute top-24 left-12">
-                  1
-                </h2>
+              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
                 <h2 className="text-2xl font-bold mb-4">
-                  Wildlife in Action: A Glimpse into Nature’s Daily Drama
+                  Ultra HD Gaming Monitor
                 </h2>
                 <p>
-                  Explore the untouched beauty of forests, mountains, and rivers
-                  as we uncover the hidden secrets of nature's most breathtaking
-                  landscapes.
+                  Immerse yourself in vivid colors and high refresh rates for a truly dynamic gaming experience.
                 </p>
+                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+                  Shop Now
+                </button>
               </div>
-              <video
-                src="https://videos.pexels.com/video-files/10178127/10178127-uhd_2560_1440_30fps.mp4"
-                loading="lazy"
-                autoPlay
-                muted
-                loop
-                className="item_media object-cover w-1/2 h-full"
+              <img
+                src="https://source.unsplash.com/800x600/?gaming,monitor"
+                alt="Gaming Monitor"
+                className="item_media z-0 object-cover w-1/2 h-full"
               />
             </div>
 
-            {/* Horizontal Item 2 */}
+            {/* Horizontal Item 2: Gaming Chair */}
             <div
               role="listitem"
-              className="item w-screen h-full flex absolute inset-0 shadow-[0_8px_24px_rgba(149,157,165,0.2)] overflow-hidden"
+              className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content bg-white text-gray-800 flex flex-col justify-center items-start p-12 relative w-1/2">
-                <h2 className="item_number text-xl h-12 w-12 mb-2 rounded-full bg-black text-white flex items-center justify-center font-normal absolute top-24 left-12">
-                  2
-                </h2>
+              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
                 <h2 className="text-2xl font-bold mb-4">
-                  Nature’s Symphony: The Sounds That Heal the Soul
+                  Ergonomic Gaming Chair
                 </h2>
                 <p>
-                  Immerse yourself in the soothing sounds of chirping birds,
-                  rustling leaves, and flowing streams – nature's music for peace
-                  and tranquility.
+                  Designed for comfort and style, our gaming chairs offer premium support during marathon sessions.
                 </p>
+                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+                  Shop Now
+                </button>
               </div>
-              <video
-                src="https://videos.pexels.com/video-files/15708463/15708463-uhd_2560_1440_24fps.mp4"
-                loading="lazy"
-                autoPlay
-                muted
-                loop
-                className="item_media object-cover w-1/2 h-full"
+              <img
+                src="https://source.unsplash.com/800x600/?gaming,chair"
+                alt="Gaming Chair"
+                className="item_media z-0 object-cover w-1/2 h-full"
               />
             </div>
 
-            {/* Horizontal Item 3 */}
+            {/* Horizontal Item 3: VR Headset */}
             <div
               role="listitem"
-              className="item w-screen h-full flex absolute inset-0 shadow-[0_8px_24px_rgba(149,157,165,0.2)] overflow-hidden"
+              className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content bg-white text-gray-800 flex flex-col justify-center items-start p-12 relative w-1/2">
-                <h2 className="item_number text-xl h-12 w-12 mb-2 rounded-full bg-black text-white flex items-center justify-center font-normal absolute top-24 left-12">
-                  3
-                </h2>
+              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
                 <h2 className="text-2xl font-bold mb-4">
-                  Nature’s Masterpieces: Landscapes That Take Your Breath Away
+                  Cutting-Edge VR Headset
                 </h2>
                 <p>
-                  Discover stunning views of majestic mountains, endless oceans,
-                  and golden sunsets that remind us of nature's artistic brilliance.
+                  Step into a new dimension of gaming with immersive virtual reality technology.
                 </p>
+                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+                  Shop Now
+                </button>
               </div>
-              <video
-                src="https://videos.pexels.com/video-files/15708462/15708462-uhd_2560_1440_24fps.mp4"
-                loading="lazy"
-                autoPlay
-                muted
-                loop
-                className="item_media object-cover w-1/2 h-full"
+              <img
+                src="https://source.unsplash.com/800x600/?vr,headset"
+                alt="VR Headset"
+                className="item_media z-0 object-cover w-1/2 h-full"
               />
             </div>
 
-            {/* Horizontal Item 4 */}
+            {/* Horizontal Item 4: Gaming Desk */}
             <div
               role="listitem"
-              className="item w-screen h-full flex absolute inset-0 shadow-[0_8px_24px_rgba(149,157,165,0.2)] overflow-hidden"
+              className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content bg-white text-gray-800 flex flex-col justify-center items-start p-12 relative w-1/2">
-                <h2 className="item_number text-xl h-12 w-12 mb-2 rounded-full bg-black text-white flex items-center justify-center font-normal absolute top-24 left-12">
-                  4
-                </h2>
+              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
                 <h2 className="text-2xl font-bold mb-4">
-                  The Power of Nature: How It Shapes Our World
+                  Sleek Gaming Desk
                 </h2>
                 <p>
-                  Dive into the incredible forces of nature – from roaring
-                  waterfalls to mighty hurricanes – and see how they sculpt the
-                  earth we live on.
+                  Organize your gear and elevate your setup with a modern, spacious gaming desk designed for efficiency.
                 </p>
+                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
+                  Shop Now
+                </button>
               </div>
-              <video
-                src="https://videos.pexels.com/video-files/5788966/5788966-hd_1920_1080_25fps.mp4"
-                loading="lazy"
-                autoPlay
-                muted
-                loop
-                className="item_media object-cover w-1/2 h-full"
+              <img
+                src="https://source.unsplash.com/800x600/?gaming,desk"
+                alt="Gaming Desk"
+                className="item_media z-0 object-cover w-1/2 h-full"
               />
             </div>
           </div>
@@ -343,29 +283,12 @@ const ScrollAnimationComponent = () => {
                 className="text-5xl h-[50vh] flex items-center justify-center"
                 style={{ textShadow: '0.04em 0.04rem 0 #81b5ab' }}
               >
-                Soo Cool!!
+                Level Up Your Game!
               </h1>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Floating YouTube Button */}
-      <a
-        href="https://www.youtube.com/@PixelPerfectLabs"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-5 right-5 bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-md transition-all duration-300 z-20 hover:bg-red-600 hover:shadow-lg hover:-translate-y-1"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="white"
-          viewBox="0 0 24 24"
-        >
-          <path d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765 1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.515 2.515 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831zM9.996 15.005l.005-6 5.207 3.005-5.212 2.995z" />
-        </svg>
-      </a>
     </main>
   );
 };
