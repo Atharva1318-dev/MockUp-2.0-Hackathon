@@ -1,26 +1,38 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Search, ShoppingBag, Grid } from "lucide-react"
+import { ArrowRight, Search, ShoppingBag, Grid } from "lucide-react";
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 export default function Categories() {
+
+    useGSAP(() => {
+        gsap.from(".grid img, .gsapImg img", {
+            opacity: 0,
+            duration: 2,
+            delay: 0.3,
+            stagger: 0.3
+        })
+    })
+
     const categories = [
         {
             title: "Keyboards",
-            img: "/placeholder.svg?height=200&width=300",
+            img: "../src/assets/keyboard-with-gold-bars-white-background-3d-illustration.jpg?height=200&width=300",
             link: "#",
         },
         {
             title: "Gaming Mouse",
-            img: "/placeholder.svg?height=200&width=300",
+            img: "../src/assets/De1009086www.tiktarh.com_.jpg?height=200&width=300",
             link: "#",
         },
         {
             title: "Headphones",
-            img: "/placeholder.svg?height=200&width=300",
+            img: "../src/assets/beautiful-gaming-headphone-isolated-transparent-background_84443-1553-removebg-preview.png?height=200&width=300",
             link: "#",
         },
         {
             title: "Gaming Controllers",
-            img: "/placeholder.svg?height=200&width=300",
+            img: "../src/assets/28788924_03june22_game_controller_icon_05-01-removebg-preview.png?height=200&width=300",
             link: "#",
         },
     ]
@@ -29,19 +41,19 @@ export default function Categories() {
         {
             title: "Vortex Reaper",
             description: "Unparalleled Precision and Control for the Ultimate Gaming Edge",
-            img: "/placeholder.svg?height=400&width=600",
+            img: "../src/assets/generation-white-game-controller-isolated-black-background-with-colored-lights-illuminating-it-close-up-selective-focus_442713-2607.jpg?height=600&width=600",
             link: "#",
         },
         {
             title: "Quantum Pro",
             description: "The Quantum Pro Redefines Immersive Gaming Audio",
-            img: "/placeholder.svg?height=400&width=600",
+            img: "../src/assets/modern-high-quality-wireless-ear-headphones-neon-trendy-style_97245-1659.jpg?height=400&width=600",
             link: "#",
         },
     ]
 
     return (
-        <div className="min-h-screen bg-[#111] text-white p-8">
+        <div className="min-h-screen bg-[#111] text-white p-11">
             <h1 className="text-center text-4xl font-bold mb-12 font-['Orbitron']">CATEGORIES</h1>
 
             {/* Categories Grid */}
@@ -51,7 +63,7 @@ export default function Categories() {
                         key={index}
                         className="group relative rounded-2xl overflow-hidden bg-[#1a1a1a] hover:shadow-[0_0_20px_rgba(138,43,226,0.3)] transition-shadow duration-300"
                     >
-                        <div className="aspect-[4/3] relative overflow-hidden">
+                        <div className="aspect-[4/3] relative overflow-hidden gsapImg">
                             <img
                                 src={category.img || "/placeholder.svg"}
                                 alt={category.title}

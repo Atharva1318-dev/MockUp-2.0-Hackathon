@@ -1,11 +1,23 @@
-import { useState, useEffect } from "react"
-import { ArrowLeft, ArrowRight, ArrowRightIcon } from "lucide-react"
+import { useState, useEffect } from "react";
+import { ArrowLeft, ArrowRight, ArrowRightIcon } from "lucide-react";
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const WeeklyDeals = () => {
     const [days, setDays] = useState(8)
     const [hours, setHours] = useState(16)
     const [minutes, setMinutes] = useState(34)
     const [seconds, setSeconds] = useState(52)
+
+    useGSAP(() => {
+        gsap.from(".weeklyDealsHeadphone", {
+            opacity: 0,
+            rotate: -360,
+            duration: 2,
+            delay: 0.3
+        })
+    })
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -62,7 +74,7 @@ const WeeklyDeals = () => {
             <div className="relative h-full max-w-7xl mx-auto px-8 flex items-center">
                 {/* Left side - Text and countdown */}
                 <div className="w-1/2 pt-16">
-                    <h2 className="text-white text-5xl font-bold tracking-wider" style={{ fontFamily: "sans-serif" }}>
+                    <h2 className="text-white text-5xl font-bold tracking-wider">
                         Weekly Deals
                     </h2>
                     <p className="text-white/80 mt-3 text-lg max-w-md">
@@ -99,9 +111,9 @@ const WeeklyDeals = () => {
                 {/* Right side - Headphones image */}
                 <div className="w-1/2 flex justify-center items-center">
                     <img
-                        src="/placeholder.svg?height=500&width=500"
+                        src="../src/assets/headphones-isolated-transparent-background-headphone-day-technology-day_1121752-51822-removebg-preview.png?height=500&width=500"
                         alt="Gaming Headphones"
-                        className="w-[550px] h-auto object-contain transform translate-y-4"
+                        className="w-[550px] h-auto object-contain transform translate-y-4  image-drop-shadow weeklyDealsHeadphone"
                     />
                 </div>
             </div>
