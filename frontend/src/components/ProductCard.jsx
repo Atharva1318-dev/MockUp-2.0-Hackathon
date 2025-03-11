@@ -33,12 +33,12 @@ const ModelCarousel = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex items-center">
+    <div className="min-h-screen bg-card text-white flex items-center">
       <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row">
         {/* Left Side - Description */}
         <div className="lg:w-1/2 p-8 flex flex-col justify-center">
           <h1 className="text-5xl font-bold mb-4">{models[activeIndex].title}</h1>
-          <p className="text-lg text-gray-400 mb-6">{models[activeIndex].description}</p>
+          <p className="text-lg text-gray-400 mb-6" style={{ fontFamily: '"Open Sans", sans-serif' }}>{models[activeIndex].description}</p>
           <div className="flex items-center gap-6">
             <span className="text-4xl font-bold text-[#e558ff]">{models[activeIndex].price}</span>
             <button className="bg-[#e558ff] text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-[#d042eb] transition-colors">
