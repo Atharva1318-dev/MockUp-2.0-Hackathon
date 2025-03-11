@@ -3,6 +3,8 @@ import { ArrowLeft, ArrowRight, ArrowRightIcon } from "lucide-react";
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import ScrollTrigger from "gsap/ScrollTrigger";
+
 
 const WeeklyDeals = () => {
     const [days, setDays] = useState(8)
@@ -11,13 +13,20 @@ const WeeklyDeals = () => {
     const [seconds, setSeconds] = useState(52)
 
     useGSAP(() => {
+        // Register ScrollTrigger if not already registered
+        gsap.registerPlugin(ScrollTrigger);
+
         gsap.from(".weeklyDealsHeadphone", {
             opacity: 0,
             rotate: -360,
             duration: 2,
-            delay: 0.3
-        })
-    })
+            scrollTrigger: {
+                trigger: ".weeklyDealsHeadphone", // Element that triggers the animation
+                start: "top 80%", // When the top of the element hits 80% down the viewport
+                toggleActions: "play none none none" // Play the animation once
+            }
+        });
+    });
 
     useEffect(() => {
         const timer = setInterval(() => {
