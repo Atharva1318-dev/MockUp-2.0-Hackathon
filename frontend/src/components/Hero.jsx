@@ -16,10 +16,8 @@ import video1 from "../assets/8128222-uhd_3840_2160_25fps.mp4";
 import video2 from "../assets/13057075_3840_2160_24fps.mp4";
 
 function Hero() {
-    // For sequential video playback:
     const videos = [video1, video2];
     const [currentVideo, setCurrentVideo] = useState(0);
-
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -36,6 +34,8 @@ function Hero() {
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
+
+        // Animate hero heading letters
         gsap.fromTo(
             ".hero-heading .letter",
             { opacity: 0, y: -50 },
@@ -52,19 +52,36 @@ function Hero() {
                 },
             }
         );
+
+        // Animate feature cards, but only once we scroll down to the .features-section
+        gsap.fromTo(
+            ".feature-card",
+            { opacity: 0, y: 50 },  // start fully transparent and slightly below
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power4.out",
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: ".features-section",   // wrapper for feature cards
+                    start: "top 80%",              // adjust to taste (e.g. "top 70%", "bottom 90%", etc.)
+                    toggleActions: "play none none reverse",
+                },
+            }
+        );
     }, []);
 
-    // When the current video ends, update the index
     const handleVideoEnded = () => {
         setCurrentVideo((prev) => (prev + 1) % videos.length);
     };
 
     return (
         <div className="relative min-h-screen bg-card text-white overflow-hidden">
-            {/* Background Video (Sequential Playback) */}
+            {/* Background Video */}
             <div className="absolute inset-0 z-0 overflow-hidden">
                 <video
-                    key={currentVideo} // ensures re-render on source change
+                    key={currentVideo}
                     src={videos[currentVideo]}
                     autoPlay
                     muted
@@ -147,8 +164,8 @@ function Hero() {
                 </div>
             </main>
 
-            {/* Features Grid */}
-            <section className="relative z-10 bg-card backdrop-blur-md py-16">
+            {/* Features Grid (Add a wrapper class for scroll trigger) */}
+            <section className="features-section relative z-10 bg-card backdrop-blur-md py-16">
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <FeatureCard
@@ -191,7 +208,7 @@ function Hero() {
 
 function FeatureCard({ icon, title, description }) {
     return (
-        <div className="p-6 border border-white/10 rounded-lg hover:border-purple-500/50 transition-colors">
+        <div className="feature-card p-6 border border-white/10 rounded-lg hover:border-purple-500/50 transition-colors">
             <div className="flex items-center space-x-4">
                 {icon}
                 <h3 className="text-lg font-semibold">{title}</h3>

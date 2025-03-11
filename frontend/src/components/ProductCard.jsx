@@ -7,7 +7,7 @@ function ProductCard() {
       <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row items-center justify-between gap-12">
         {/* Left Content */}
         <div className="flex-1 space-y-6">
-          <h1 className="text-5xl font-bold tracking-wider" style={{ fontFamily: 'Arial' }}>
+          <h1 className="text-5xl font-bold tracking-wider">
             Quantum Nexus
             <br />
             Wireless Headphones
@@ -23,7 +23,7 @@ function ProductCard() {
             </button>
           </div>
         </div>
-        
+
         {/* Right Content - Headphone Model */}
         <div className="flex-1 relative">
           <div className="aspect-square bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] rounded-3xl p-6 flex items-center justify-center">
