@@ -233,7 +233,7 @@ function FeatureCard({ icon, title, description }) {
                 {icon}
                 <h3 className="text-lg font-semibold">{title}</h3>
             </div>
-            <p className="text-gray-400">{description}</p>
+            <p className="text-gray-400" style={{ fontFamily: '"Open Sans", sans-serif' }}>{description}</p>
         </div>
     );
 }
