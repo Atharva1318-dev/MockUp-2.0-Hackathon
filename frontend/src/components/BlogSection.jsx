@@ -1,5 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import blog1 from "/src/assets/blog1.jpg";
+import blog2 from "/src/assets/blog2.jpg";
+import blog3 from "/src/assets/blog3.jpg";
+import blog4 from "/src/assets/blog4.jpg";
 
 const BlogSection = () => {
   const sectionRef = useRef(null);
@@ -84,33 +88,33 @@ const BlogSection = () => {
       author: "Martinez",
       title: "How Pro-Grade Gaming Gear Can Elevate Your Gameplay",
       description: "Discover the performance advantages of high-end gaming controllers, mice, and peripherals for competitive play.",
-      bgColor: "from-green-600 to-green-900",
+      src: blog1,
     },
     {
       date: "16 Jan 2024",
       author: "Musser",
       title: "The Future of Haptic Feedback in Gaming Controllers",
       description: "Exploring next-generation tactile feedback systems coming to premium gaming controllers in 2025.",
-      bgColor: "from-purple-600 to-purple-900",
+      src: blog2,
     },
     {
       date: "08 Apr 2024",
       author: "Marilyn",
       title: "Minimalist Design Trends in Gaming Hardware",
       description: "How sleek, two-tone aesthetics are defining the new generation of gaming peripherals and equipment.",
-      bgColor: "from-blue-600 to-blue-900",
+      src: blog3,
     },
     {
       date: "17 Jun 2024",
       author: "Kristina",
       title: "Essential Gear for Competitive Esports Players",
       description: "Professional recommendations for controllers, headsets and gear that can give you the competitive edge.",
-      bgColor: "from-pink-600 to-fuchsia-800",
+      src: blog4,
     },
   ];
 
   return (
-    <div ref={sectionRef} className="bg-black text-white py-16 px-6 md:px-8">
+    <div ref={sectionRef} className="bg-card text-white py-16 px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header - Matching the site's existing header style */}
         <h1 className="section-title text-5xl md:text-6xl font-bold mb-16 text-center tracking-wide">
@@ -126,13 +130,18 @@ const BlogSection = () => {
               className="rounded-lg overflow-hidden bg-gray-800 shadow-lg transition-all duration-300 cursor-pointer"
               onMouseEnter={(e) => handleMouseEnter(e.currentTarget)}
               onMouseLeave={(e) => handleMouseLeave(e.currentTarget)}
-            >
-              {/* Card Image Placeholder with gradient matching site colors */}
-              <div className={`card-image h-48 bg-gradient-to-br ${post.bgColor} relative overflow-hidden`}>
-                <div className="absolute top-3 left-3 card-date bg-black bg-opacity-70 text-white px-3 py-1 rounded text-sm">
-                  {post.date}
-                </div>
+            >{/* Card Image Placeholder with gradient and actual image */}
+            <div className={`card-image h-48 bg-gradient-to-br ${post.bgColor} relative overflow-hidden`}>
+              <img 
+                src={post.src} 
+                alt={post.title} 
+                className="w-full h-full object-cover" 
+              />
+              <div className="absolute top-3 left-3 card-date bg-black bg-opacity-70 text-white px-3 py-1 rounded text-sm">
+                {post.date}
               </div>
+            </div>
+            
 
               {/* Card Content */}
               <div className="p-5">

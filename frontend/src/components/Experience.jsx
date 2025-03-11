@@ -5,11 +5,8 @@ export default function GamingHero() {
     <section className="relative min-h-[600px] w-full overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/placeholder.svg?height=1080&width=1920')`,
-          backgroundPosition: "50% 30%",
-        }}
+        className="absolute inset-0 bg-card bg-center bg-no-repeat"
+        
       >
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-purple-900/80 to-green-900/80"></div>

@@ -39,7 +39,7 @@ const WeeklyDeals = () => {
     }
 
     return (
-        <div className="relative w-full h-screen bg-black overflow-hidden">
+        <div className="relative w-full h-screen bg-card overflow-hidden">
             {/* Navigation dots and arrows */}
             <div className="absolute top-20 left-0 right-0 flex justify-center items-center gap-2 z-10">
                 <button className="text-white/70 hover:text-white">

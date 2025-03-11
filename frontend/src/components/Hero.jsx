@@ -14,17 +14,15 @@ function Hero() {
     }, []);
 
     return (
-        <div className="min-h-screen bg-black text-white overflow-hidden">
+        <div className="min-h-screen bg-card text-white overflow-hidden">
             {/* Animated Background Grid */}
             <div
                 className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(50,50,50,0.2)_1px,transparent_1px)] bg-[length:30px_30px]"
-                style={{
-                    transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`,
-                }}
+                
             />
 
             {/* Navigation */}
-            <nav className="relative z-50 px-6 py-4 flex items-center justify-between bg-black/50 backdrop-blur-md">
+            <nav className="relative z-50 px-6 py-4 flex items-center justify-between bg-card backdrop-blur-md">
                 <div className="flex items-center space-x-8">
                     <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
                         NEXUS
@@ -83,7 +81,7 @@ function Hero() {
             </main>
 
             {/* Features Grid */}
-            <section className="relative z-10 bg-black/50 backdrop-blur-md py-16">
+            <section className="relative z-10 bg-card backdrop-blur-md py-16">
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <FeatureCard
