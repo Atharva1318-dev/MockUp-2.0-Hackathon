@@ -2,17 +2,27 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Search, ShoppingBag, Grid } from "lucide-react";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default function Categories() {
 
     useGSAP(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
         gsap.from(".grid img, .gsapImg img", {
             opacity: 0,
             duration: 2,
             delay: 0.3,
-            stagger: 0.3
-        })
-    })
+            stagger: 0.3,
+            scrollTrigger: {
+                trigger: ".grid",
+                scroller: "body",
+                start: "top 80%", // Adjusted start position
+                toggleActions: "play none none none",
+                markers: true // For debugging; remove when finalized
+            }
+        });
+    });
 
     const categories = [
         {

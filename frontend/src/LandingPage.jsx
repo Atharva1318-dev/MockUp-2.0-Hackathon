@@ -16,16 +16,16 @@ import Footer from "./components/Footer";
 export default function LandingPage() {
     return (
         <>
-            {/* <Hero></Hero>
-            <Story></Story>*/}
-            {/* <Categories></Categories> */}
+            <Hero></Hero>
+            <Story></Story>
+            <Categories></Categories>
             <TopRated></TopRated>
-            {/* <WeeklyDeals></WeeklyDeals> */}
-            {/* <ShopByBrands></ShopByBrands>
+            <WeeklyDeals></WeeklyDeals>
+            <ShopByBrands></ShopByBrands>
             <CustomerReviews></CustomerReviews>
             <ProductCard></ProductCard>
             <BlogSection></BlogSection>
-            <Footer></Footer> */}
+            <Footer></Footer>
         </>
     )
 }
