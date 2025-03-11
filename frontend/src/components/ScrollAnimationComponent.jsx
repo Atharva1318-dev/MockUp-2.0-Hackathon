@@ -1,7 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import headphones from '../assets/scrollheadphone.jpg';
+import keyboard from '../assets/scrollkeyboard.jpg';
+import mouse from '../assets/scrollmouse.jpg';
+import vr from '../assets/scrollvrheadset.jpg';
+import desk from '../assets/scrolldesk.jpg';
+import monitor from '../assets/scrollmonitor.jpg';
+import chair from '../assets/scrollchair.jpg';
 gsap.registerPlugin(ScrollTrigger);
 
 const ScrollAnimationComponent = () => {
@@ -36,7 +42,7 @@ const ScrollAnimationComponent = () => {
             trigger: section,
             pin: true,
             start: 'top top',
-            end: () => `+=${(items.length - 1) * 100}%`,
+            end: `+=${(items.length - 1) * 100}%`,
             scrub: 1,
             invalidateOnRefresh: true,
             // markers: true,
@@ -62,7 +68,7 @@ const ScrollAnimationComponent = () => {
   }, []);
 
   return (
-    <main ref={containerRef} className="main-wrapper">
+    <main ref={containerRef} className="main-wrapperbg-gray-800 ">
       {/* Vertical Scroll Section */}
       <div className="scroll-section vertical-section overflow-hidden">
         <div className="wrapper h-screen">
@@ -73,21 +79,26 @@ const ScrollAnimationComponent = () => {
             {/* Vertical Item 1: Gaming Headphones */}
             <div
               role="listitem"
-              className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
+              className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden "
             >
-              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
-                <h2 className="text-2xl font-bold mb-4">
+              <div className="item_content z-10 bg-card text-white flex flex-col justify-center items-start p-12 relative w-1/2 ">
+                <h2 className="text-4xl font-bold mb-4">
                   Immersive Audio Experience
                 </h2>
                 <p>
                   Elevate your game with our top-of-the-line gaming headphones that deliver crystal-clear sound and deep bass.
                 </p>
-                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
-                  Shop Now
+                <button className="mt-4 px-8 py-3 font-bold text-white uppercase tracking-wide 
+                   bg-gradient-to-r from-blue-600 to-purple-600 
+                   hover:from-purple-600 hover:to-blue-600 
+                   border-2 border-blue-500 shadow-lg shadow-blue-500/50 
+                   rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/50">
+                     Shop Now
                 </button>
+
               </div>
               <img
-                src="https://source.unsplash.com/800x600/?gaming,headphones"
+                src={headphones}
                 alt="Gaming Headphones"
                 className="item_media z-0 object-cover w-1/2 h-full"
               />
@@ -98,15 +109,19 @@ const ScrollAnimationComponent = () => {
               role="listitem"
               className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
-                <h2 className="text-2xl font-bold mb-4">
+              <div className="item_content z-10 bg-light-card text-white flex flex-col justify-center items-start p-12 relative w-1/2 ">
+                <h2 className="text-4xl font-bold mb-4">
                   Power-Packed Gaming Laptop
                 </h2>
                 <p>
                   Experience ultimate performance with our gaming laptops featuring fast processors and advanced graphics.
                 </p>
-                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
-                  Shop Now
+                <button className="mt-4 px-8 py-3 font-bold text-white uppercase tracking-wide 
+                   bg-gradient-to-r from-blue-600 to-purple-600 
+                   hover:from-purple-600 hover:to-blue-600 
+                   border-2 border-blue-500 shadow-lg shadow-blue-500/50 
+                   rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/50">
+                     Shop Now
                 </button>
               </div>
               <img
@@ -121,19 +136,23 @@ const ScrollAnimationComponent = () => {
               role="listitem"
               className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
-                <h2 className="text-2xl font-bold mb-4">
+              <div className="item_content z-10 bg-card text-white flex flex-col justify-center items-start p-12 relative w-1/2 ">
+                <h2 className="text-4xl font-bold mb-4">
                   Precision Gaming Keyboard
                 </h2>
                 <p>
                   Enjoy responsive keys, customizable RGB lighting, and tactile feedback to gain the competitive edge.
                 </p>
-                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
-                  Shop Now
+                <button className="mt-4 px-8 py-3 font-bold text-white uppercase tracking-wide 
+                   bg-gradient-to-r from-blue-600 to-purple-600 
+                   hover:from-purple-600 hover:to-blue-600 
+                   border-2 border-blue-500 shadow-lg shadow-blue-500/50 
+                   rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/50">
+                     Shop Now
                 </button>
               </div>
               <img
-                src="https://source.unsplash.com/800x600/?gaming,keyboard"
+                src={keyboard}
                 alt="Gaming Keyboard"
                 className="item_media z-0 object-cover w-1/2 h-full"
               />
@@ -144,19 +163,23 @@ const ScrollAnimationComponent = () => {
               role="listitem"
               className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
-                <h2 className="text-2xl font-bold mb-4">
+              <div className="item_content z-10 bg-light-card text-white flex flex-col justify-center items-start p-12 relative w-1/2 ">
+                <h2 className="text-4xl font-bold mb-4">
                   Ergonomic Gaming Mouse
                 </h2>
                 <p>
                   Gain ultimate control with our high-DPI, customizable gaming mouse designed for precision.
                 </p>
-                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
-                  Shop Now
+                <button className="mt-4 px-8 py-3 font-bold text-white uppercase tracking-wide 
+                   bg-gradient-to-r from-blue-600 to-purple-600 
+                   hover:from-purple-600 hover:to-blue-600 
+                   border-2 border-blue-500 shadow-lg shadow-blue-500/50 
+                   rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/50">
+                     Shop Now
                 </button>
               </div>
               <img
-                src="https://source.unsplash.com/800x600/?gaming,mouse"
+                src={mouse}
                 alt="Gaming Mouse"
                 className="item_media z-0 object-cover w-1/2 h-full"
               />
@@ -166,7 +189,7 @@ const ScrollAnimationComponent = () => {
       </div>
 
       {/* Transition Page Between Scroll Types */}
-      <div className="h-screen flex items-center justify-center bg-gray-900">
+      <div className="h-100 flex items-center justify-center bg-gray-900">
         <h2 className="text-4xl font-bold text-white">
           Explore More Gaming Essentials
         </h2>
@@ -184,19 +207,23 @@ const ScrollAnimationComponent = () => {
               role="listitem"
               className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
-                <h2 className="text-2xl font-bold mb-4">
+              <div className="item_content z-10 bg-card text-white flex flex-col justify-center items-start p-12 relative w-1/2 ">
+                <h2 className="text-4xl font-bold mb-4">
                   Ultra HD Gaming Monitor
                 </h2>
                 <p>
                   Immerse yourself in vivid colors and high refresh rates for a truly dynamic gaming experience.
                 </p>
-                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
-                  Shop Now
+                <button className="mt-4 px-8 py-3 font-bold text-white uppercase tracking-wide 
+                   bg-gradient-to-r from-blue-600 to-purple-600 
+                   hover:from-purple-600 hover:to-blue-600 
+                   border-2 border-blue-500 shadow-lg shadow-blue-500/50 
+                   rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/50">
+                     Shop Now
                 </button>
               </div>
               <img
-                src="https://source.unsplash.com/800x600/?gaming,monitor"
+                src={monitor}
                 alt="Gaming Monitor"
                 className="item_media z-0 object-cover w-1/2 h-full"
               />
@@ -207,19 +234,23 @@ const ScrollAnimationComponent = () => {
               role="listitem"
               className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
-                <h2 className="text-2xl font-bold mb-4">
+              <div className="item_content z-10 bg-light-card text-white flex flex-col justify-center items-start p-12 relative w-1/2 ">
+                <h2 className="text-4xl font-bold mb-4">
                   Ergonomic Gaming Chair
                 </h2>
                 <p>
                   Designed for comfort and style, our gaming chairs offer premium support during marathon sessions.
                 </p>
-                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
-                  Shop Now
+                <button className="mt-4 px-8 py-3 font-bold text-white uppercase tracking-wide 
+                   bg-gradient-to-r from-blue-600 to-purple-600 
+                   hover:from-purple-600 hover:to-blue-600 
+                   border-2 border-blue-500 shadow-lg shadow-blue-500/50 
+                   rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/50">
+                     Shop Now
                 </button>
               </div>
               <img
-                src="https://source.unsplash.com/800x600/?gaming,chair"
+                src={chair}
                 alt="Gaming Chair"
                 className="item_media z-0 object-cover w-1/2 h-full"
               />
@@ -230,19 +261,23 @@ const ScrollAnimationComponent = () => {
               role="listitem"
               className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
-                <h2 className="text-2xl font-bold mb-4">
+              <div className="item_content z-10 bg-card text-white flex flex-col justify-center items-start p-12 relative w-1/2 ">
+                <h2 className="text-4xl font-bold mb-4">
                   Cutting-Edge VR Headset
                 </h2>
                 <p>
                   Step into a new dimension of gaming with immersive virtual reality technology.
                 </p>
-                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
-                  Shop Now
+                <button className="mt-4 px-8 py-3 font-bold text-white uppercase tracking-wide 
+                   bg-gradient-to-r from-blue-600 to-purple-600 
+                   hover:from-purple-600 hover:to-blue-600 
+                   border-2 border-blue-500 shadow-lg shadow-blue-500/50 
+                   rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/50">
+                     Shop Now
                 </button>
               </div>
               <img
-                src="https://source.unsplash.com/800x600/?vr,headset"
+                src={vr}
                 alt="VR Headset"
                 className="item_media z-0 object-cover w-1/2 h-full"
               />
@@ -253,19 +288,23 @@ const ScrollAnimationComponent = () => {
               role="listitem"
               className="item w-screen h-full flex absolute inset-0 shadow-lg overflow-hidden"
             >
-              <div className="item_content z-10 bg-gradient-to-r from-gray-900 to-gray-800 text-white flex flex-col justify-center items-start p-12 relative w-1/2 rounded-lg">
-                <h2 className="text-2xl font-bold mb-4">
+              <div className="item_content z-10 bg-light-card text-white flex flex-col justify-center items-start p-12 relative w-1/2 ">
+                <h2 className="text-4xl font-bold mb-4">
                   Sleek Gaming Desk
                 </h2>
                 <p>
                   Organize your gear and elevate your setup with a modern, spacious gaming desk designed for efficiency.
                 </p>
-                <button className="mt-4 px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition">
-                  Shop Now
+                <button className="mt-4 px-8 py-3 font-bold text-white uppercase tracking-wide 
+                   bg-gradient-to-r from-blue-600 to-purple-600 
+                   hover:from-purple-600 hover:to-blue-600 
+                   border-2 border-blue-500 shadow-lg shadow-blue-500/50 
+                   rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-purple-500/50">
+                     Shop Now
                 </button>
               </div>
               <img
-                src="https://source.unsplash.com/800x600/?gaming,desk"
+                src={desk}
                 alt="Gaming Desk"
                 className="item_media z-0 object-cover w-1/2 h-full"
               />
@@ -275,12 +314,12 @@ const ScrollAnimationComponent = () => {
       </div>
 
       {/* Final Section */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden bg-gray-900">
         <div className="px-10">
           <div className="max-w-4xl mx-auto py-8">
             <div className="max-w-5xl mx-auto">
               <h1
-                className="text-5xl h-[50vh] flex items-center justify-center"
+                className="text-5xl h-[50vh] flex items-center justify-center text-white"
                 style={{ textShadow: '0.04em 0.04rem 0 #81b5ab' }}
               >
                 Level Up Your Game!
@@ -293,4 +332,4 @@ const ScrollAnimationComponent = () => {
   );
 };
 
-export default ScrollAnimationComponent;
+export default ScrollAnimationComponent; 
