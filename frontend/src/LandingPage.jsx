@@ -9,6 +9,7 @@ import CustomerReviews from "./components/CustomerReviews";
 import ProductCard from "./components/ProductCard";
 import BlogSection from "./components/BlogSection";
 import Footer from "./components/Footer";
+import ScrollAnimationComponent from "./components/ScrollAnimationComponent.jsx";
 
 
 
@@ -17,11 +18,11 @@ export default function LandingPage() {
         <>
             <Hero></Hero>
             <Story></Story>
-            <Categories></Categories>
-            <TopRated></TopRated>
             <WeeklyDeals></WeeklyDeals>
-            <CustomerReviews></CustomerReviews>
+            <ScrollAnimationComponent></ScrollAnimationComponent>
+            <Categories></Categories>
             <ProductCard></ProductCard>
+            <CustomerReviews></CustomerReviews>
             <BlogSection></BlogSection>
             <Footer></Footer>
         </>

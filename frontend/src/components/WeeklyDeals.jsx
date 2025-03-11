@@ -1,63 +1,65 @@
 import { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight, ArrowRightIcon } from "lucide-react";
-import { useRef } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-
 const WeeklyDeals = () => {
-    const [days, setDays] = useState(8)
-    const [hours, setHours] = useState(16)
-    const [minutes, setMinutes] = useState(34)
-    const [seconds, setSeconds] = useState(52)
+    const [days, setDays] = useState(8);
+    const [hours, setHours] = useState(16);
+    const [minutes, setMinutes] = useState(34);
+    const [seconds, setSeconds] = useState(52);
 
+    // Use GSAP hook to animate the headphone image on scroll
     useGSAP(() => {
-        // Register ScrollTrigger if not already registered
         gsap.registerPlugin(ScrollTrigger);
-
-        gsap.from(".weeklyDealsHeadphone", {
-            opacity: 0,
-            rotate: -360,
-            duration: 2,
-            scrollTrigger: {
-                trigger: ".weeklyDealsHeadphone", // Element that triggers the animation
-                start: "top 80%", // When the top of the element hits 80% down the viewport
-                toggleActions: "play none none none" // Play the animation once
+        gsap.fromTo(
+            ".weeklyDealsHeadphone",
+            { opacity: 0, rotate: -360 },
+            {
+                opacity: 1,
+                rotate: 0,
+                duration: 2,
+                scrollTrigger: {
+                    trigger: ".weeklyDealsHeadphone", // Trigger based on the headphone element
+                    start: "top 80%",                 // When the top of the element hits 80% down the viewport
+                    end: "bottom 20%",                // Optional: defines when the element leaves the viewport
+                    toggleActions: "play reverse play reverse" // Reverse the animation when scrolling back
+                }
             }
-        });
+        );
     });
 
     useEffect(() => {
         const timer = setInterval(() => {
             if (seconds > 0) {
-                setSeconds(seconds - 1)
+                setSeconds(seconds - 1);
             } else {
-                setSeconds(59)
+                setSeconds(59);
                 if (minutes > 0) {
-                    setMinutes(minutes - 1)
+                    setMinutes(minutes - 1);
                 } else {
-                    setMinutes(59)
+                    setMinutes(59);
                     if (hours > 0) {
-                        setHours(hours - 1)
+                        setHours(hours - 1);
                     } else {
-                        setHours(23)
+                        setHours(23);
                         if (days > 0) {
-                            setDays(days - 1)
+                            setDays(days - 1);
                         } else {
-                            clearInterval(timer)
+                            clearInterval(timer);
                         }
                     }
                 }
             }
-        }, 1000)
+        }, 1000);
 
-        return () => clearInterval(timer)
-    }, [days, hours, minutes, seconds])
+        return () => clearInterval(timer);
+    }, [days, hours, minutes, seconds]);
 
     const formatNumber = (num) => {
-        return num < 10 ? `0${num}` : num
-    }
+        return num < 10 ? `0${num}` : num;
+    };
 
     return (
         <div className="relative w-full h-screen bg-card overflow-hidden">
@@ -122,12 +124,12 @@ const WeeklyDeals = () => {
                     <img
                         src="../src/assets/headphones-isolated-transparent-background-headphone-day-technology-day_1121752-51822-removebg-preview.png?height=500&width=500"
                         alt="Gaming Headphones"
-                        className="w-[550px] h-auto object-contain transform translate-y-4  image-drop-shadow weeklyDealsHeadphone"
+                        className="w-[550px] h-auto object-contain transform translate-y-4 image-drop-shadow weeklyDealsHeadphone"
                     />
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default WeeklyDeals;

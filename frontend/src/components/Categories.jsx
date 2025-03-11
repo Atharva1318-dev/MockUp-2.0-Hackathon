@@ -6,24 +6,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default function Categories() {
 
-    useGSAP(() => {
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.from(".grid img, .gsapImg img", {
-            opacity: 0,
-            duration: 2,
-            delay: 0.3,
-            stagger: 0.3,
-            scrollTrigger: {
-                trigger: ".group",
-                start: "top 80%",
-                end: "+=1700",
-                // Adjusted start position
-                toggleActions: "play reverse play reverse",
-                // markers: true // For debugging; remove when finalized
-            }
-        });
-    });
 
     const categories = [
         {

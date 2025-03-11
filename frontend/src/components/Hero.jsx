@@ -147,6 +147,7 @@ function Hero() {
                                 </span>
                             ))}
                         </h2>
+                        <br /><br />
                         <p className="text-gray-400 text-lg max-w-lg">
                             Discover precision-engineered gaming gear that pushes the boundaries of
                             performance and style. Welcome to the future of gaming.
@@ -213,7 +214,7 @@ function FeatureCard({ icon, title, description }) {
                 {icon}
                 <h3 className="text-lg font-semibold">{title}</h3>
             </div>
-            <p className="text-gray-400">{description}</p>
+            <p className="text-gray-400" style={{ fontFamily: ' "Open Sans", sans- serif" ' }}>{description}</p>
         </div>
     );
 }

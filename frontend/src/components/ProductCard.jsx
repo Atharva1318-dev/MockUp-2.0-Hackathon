@@ -16,7 +16,7 @@ function ProductCard() {
             Quantum - Engineered with state-of-the-art audio technology for immersive sound. Experience unparalleled clarity and precision with our premium noise-cancelling headphones.
           </p>
           <div className="flex items-center gap-6">
-            <span className="text-4xl font-bold text-[#e558ff]">$85.99</span>
+            <span className="text-4xl font-bold text-[#e558ff]">&#8377;85.99</span>
             <button className="bg-[#e558ff] text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-[#d042eb] transition-colors">
               Buy Now
               <ArrowRight size={20} />
