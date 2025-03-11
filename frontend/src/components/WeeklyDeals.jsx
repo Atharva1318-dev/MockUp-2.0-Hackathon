@@ -88,7 +88,7 @@ const WeeklyDeals = () => {
                     <h2 className="text-white text-5xl font-bold tracking-wider">
                         Weekly Deals
                     </h2>
-                    <p className="text-white/80 mt-3 text-lg max-w-md">
+                    <p className="text-white/80 mt-3 text-lg max-w-md" style={{ fontFamily: '"Open Sans", sans-serif' }}>
                         Don't Miss Out - Gear Up for Victory with This Week's Unmissable Deals!
                     </p>
 

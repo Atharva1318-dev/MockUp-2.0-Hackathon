@@ -24,10 +24,10 @@ export default function GamingStorySection() {
           {/* Right Panel - Our Story (40% width) */}
           <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-blue-700 via-pink-600 to-purple-800 p-8 md:p-10 flex flex-col justify-between md:col-span-2 h-[250px] md:h-[300px] lg:h-[350px]">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white font-mono tracking-wide">
+              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-wide">
                 Our Story
               </h2>
-              <p className="text-white/90 text-base md:text-lg leading-relaxed mt-6">
+              <p className="text-white/90 text-base md:text-lg leading-relaxed mt-6" style={{ fontFamily: '"Open Sans", sans-serif' }}>
                 Driven by gaming passion, we craft the finest gear to empower
                 players. Our unwavering innovation and user focus make us an
                 integral part of the global gaming community.
