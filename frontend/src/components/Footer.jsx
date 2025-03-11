@@ -86,9 +86,9 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="bg-gray-800 rounded-l-full py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="bg-gray-800 rounded-l-full py-2 px-4 w-full focus:outline-none focus:ring-2 focus:ring-purple-500" style={{ fontFamily: '"Open Sans", sans-serif' }}
               />
-              <button className="bg-purple-500 hover:bg-purple-600 text-white rounded-r-full px-6 py-2 transition-colors duration-300">
+              <button className="bg-purple-500 hover:bg-purple-600 text-white rounded-r-full px-6 py-2 transition-colors duration-300" style={{ fontFamily: '"Open Sans", sans-serif' }}>
                 Submit
               </button>
             </div>

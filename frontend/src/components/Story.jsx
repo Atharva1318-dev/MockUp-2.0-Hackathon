@@ -1,4 +1,5 @@
 import { Play, ArrowUpRight } from "lucide-react";
+import ourstory from "/src/assets/ourstory.mp4";
 
 export default function GamingStorySection() {
   return (
@@ -8,19 +9,16 @@ export default function GamingStorySection() {
           {/* Left Panel - Gaming Setup with Video Play Button (60% width) */}
           <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-purple-900 to-pink-700 md:col-span-3 h-[250px] md:h-[300px] lg:h-[350px]">
             <div className="absolute inset-0 bg-black/20 z-10"></div>
-            <img
-              src="/placeholder.svg"
-              alt="Gaming setup with RGB keyboard, headset and controllers"
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              src={ourstory}
               className="w-full h-full object-cover"
-            />
-            <button
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20
-                        bg-white/20 backdrop-blur-sm rounded-full p-4 
-                        hover:bg-white/30 transition-all duration-300"
-              aria-label="Play video"
             >
-              <Play className="w-8 h-8 text-white fill-white" />
-            </button>
+              Your browser does not support the video tag.
+            </video>
           </div>
 
           {/* Right Panel - Our Story (40% width) */}
@@ -30,8 +28,9 @@ export default function GamingStorySection() {
                 Our Story
               </h2>
               <p className="text-white/90 text-base md:text-lg leading-relaxed mt-6">
-                Driven by gaming passion, we craft the finest gear to empower players. Our unwavering innovation and
-                user focus make us an integral part of the global gaming community.
+                Driven by gaming passion, we craft the finest gear to empower
+                players. Our unwavering innovation and user focus make us an
+                integral part of the global gaming community.
               </p>
             </div>
             <div className="mt-8">

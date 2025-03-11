@@ -146,9 +146,9 @@ const BlogSection = () => {
 
               {/* Card Content */}
               <div className="p-5 flex flex-col flex-grow">
-                <p className="text-gray-400 text-sm mb-2">By {post.author}</p>
+                <p className="text-gray-400 text-sm mb-2" style={{ fontFamily: '"Open Sans", sans-serif' }}>By {post.author}</p>
                 <h3 className="card-title text-xl font-bold mb-3 text-white">{post.title}</h3>
-                <p className="card-desc text-gray-400 text-sm mb-4">{post.description}</p>
+                <p className="card-desc text-gray-400 text-sm mb-4" style={{ fontFamily: '"Open Sans", sans-serif' }}>{post.description}</p>
                 <div className="mt-auto">
                   <button className="card-button text-sm font-medium flex items-center text-white hover:text-fuchsia-500 transition-colors">
                     Read More

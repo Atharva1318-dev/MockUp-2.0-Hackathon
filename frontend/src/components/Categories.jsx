@@ -5,8 +5,6 @@ import { useGSAP } from '@gsap/react';
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default function Categories() {
-
-
     const categories = [
         {
             title: "Keyboards",
@@ -28,7 +26,7 @@ export default function Categories() {
             img: "../src/assets/28788924_03june22_game_controller_icon_05-01-removebg-preview.png?height=200&width=300",
             link: "#",
         },
-    ]
+    ];
 
     const featuredProducts = [
         {
@@ -43,7 +41,7 @@ export default function Categories() {
             img: "../src/assets/modern-high-quality-wireless-ear-headphones-neon-trendy-style_97245-1659.jpg?height=400&width=600",
             link: "#",
         },
-    ]
+    ];
 
     return (
         <div className="min-h-screen bg-card text-white p-8">
@@ -60,8 +58,7 @@ export default function Categories() {
                             <img
                                 src={category.img || "/placeholder.svg"}
                                 alt={category.title}
-                                fill
-                                className="object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                className="object-cover transform group-hover:scale-105 transition-transform duration-300 w-full h-full"
                             />
                             {/* Gradient Overlay */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
@@ -70,7 +67,7 @@ export default function Categories() {
                         <div className="absolute bottom-0 w-full p-4">
                             <h3 className="text-xl font-semibold mb-2 font-['Orbitron']">{category.title}</h3>
                             <Link
-                                href={category.link}
+                                to={category.link}
                                 className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors text-sm group"
                             >
                                 Shop Now
@@ -89,8 +86,13 @@ export default function Categories() {
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                         <div className="aspect-[16/9] relative">
-                            <img src={product.img || "/placeholder.svg"} alt={product.title} fill className="object-cover" />
-
+                            <img
+                                src={product.img || "/placeholder.svg"}
+                                alt={product.title}
+                                className={`object-cover ${product.title === "Vortex Reaper"
+                                    ? "absolute inset-0"
+                                    : "w-full h-full"}`}
+                            />
                             {/* Gradient Overlay */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
@@ -99,7 +101,7 @@ export default function Categories() {
                                 <h2 className="text-3xl font-bold mb-2 font-['Orbitron']">{product.title}</h2>
                                 <p className="text-gray-300 mb-4 max-w-md">{product.description}</p>
                                 <Link
-                                    href={product.link}
+                                    to={product.link}
                                     className="inline-flex items-center bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-full transition-colors group"
                                 >
                                     Buy Now
@@ -111,5 +113,5 @@ export default function Categories() {
                 ))}
             </div>
         </div>
-    )
+    );
 }
