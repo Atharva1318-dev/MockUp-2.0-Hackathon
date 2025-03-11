@@ -5,6 +5,7 @@ import Story from "./components/Story";
 import Categories from "./components/Categories";
 import TopRated from "./components/TopRated";
 import WeeklyDeals from "./components/WeeklyDeals";
+import ShopByBrands from "./components/ShopByBrands";
 import CustomerReviews from "./components/CustomerReviews";
 import ProductCard from "./components/ProductCard";
 import BlogSection from "./components/BlogSection";
@@ -15,15 +16,16 @@ import Footer from "./components/Footer";
 export default function LandingPage() {
     return (
         <>
-            <Hero></Hero>
-            <Story></Story>
-            <Categories></Categories>
+            {/* <Hero></Hero>
+            <Story></Story>*/}
+            {/* <Categories></Categories> */}
             <TopRated></TopRated>
-            <WeeklyDeals></WeeklyDeals>
+            {/* <WeeklyDeals></WeeklyDeals> */}
+            {/* <ShopByBrands></ShopByBrands>
             <CustomerReviews></CustomerReviews>
             <ProductCard></ProductCard>
             <BlogSection></BlogSection>
-            <Footer></Footer>
+            <Footer></Footer> */}
         </>
     )
 }

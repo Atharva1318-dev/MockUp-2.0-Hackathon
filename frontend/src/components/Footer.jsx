@@ -101,7 +101,7 @@ const Footer = () => {
         {/* Logo and Copyright */}
         <div className="flex flex-col items-center justify-center space-y-6">
           <div className="text-2xl font-bold flex items-center">
-            <span className="text-white mr-2">GEARNIX</span>
+            <span className="text-white mr-2">Nexus</span>
             <svg
               width="24"
               height="24"
