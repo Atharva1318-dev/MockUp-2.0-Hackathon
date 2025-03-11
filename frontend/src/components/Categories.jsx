@@ -15,11 +15,12 @@ export default function Categories() {
             delay: 0.3,
             stagger: 0.3,
             scrollTrigger: {
-                trigger: ".grid",
-                scroller: "body",
-                start: "top 80%", // Adjusted start position
-                toggleActions: "play none none none",
-                markers: true // For debugging; remove when finalized
+                trigger: ".group",
+                start: "top 80%",
+                end: "+=1700",
+                // Adjusted start position
+                toggleActions: "play reverse play reverse",
+                // markers: true // For debugging; remove when finalized
             }
         });
     });
@@ -64,7 +65,7 @@ export default function Categories() {
 
     return (
         <div className="min-h-screen bg-card text-white p-8">
-            <h1 className="text-center text-4xl font-bold mb-12 font-['Orbitron']">CATEGORIES</h1>
+            <h1 className="text-center text-4xl font-bold mb-12 font-['Orbitron']">EXPLORE MORE</h1>
 
             {/* Categories Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">

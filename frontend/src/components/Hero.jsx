@@ -1,7 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { MousePointer2, ShoppingCart, Heart, Menu, ChevronRight, Truck, RotateCcw, Coins, HeadphonesIcon } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import {
+    MousePointer2,
+    ShoppingCart,
+    Heart,
+    Menu,
+    ChevronRight,
+    Truck,
+    RotateCcw,
+    Coins,
+    HeadphonesIcon,
+} from "lucide-react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import video1 from "../assets/8128222-uhd_3840_2160_25fps.mp4";
+import video2 from "../assets/13057075_3840_2160_24fps.mp4";
 
 function Hero() {
+    // For sequential video playback:
+    const videos = [video1, video2];
+    const [currentVideo, setCurrentVideo] = useState(0);
+
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -9,17 +27,55 @@ function Hero() {
         const handleMouseMove = (e) => {
             setMousePosition({ x: e.clientX, y: e.clientY });
         };
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => window.removeEventListener("mousemove", handleMouseMove);
     }, []);
 
+    const headingText = "Elevate Your Gaming Experience";
+    const words = headingText.split(" ");
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.fromTo(
+            ".hero-heading .letter",
+            { opacity: 0, y: -50 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power4.out",
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: ".hero-heading",
+                    start: "top 80%",
+                    toggleActions: "restart reverse restart reverse",
+                },
+            }
+        );
+    }, []);
+
+    // When the current video ends, update the index
+    const handleVideoEnded = () => {
+        setCurrentVideo((prev) => (prev + 1) % videos.length);
+    };
+
     return (
-        <div className="min-h-screen bg-card text-white overflow-hidden">
-            {/* Animated Background Grid */}
-            <div
-                className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(50,50,50,0.2)_1px,transparent_1px)] bg-[length:30px_30px]"
-                
-            />
+        <div className="relative min-h-screen bg-card text-white overflow-hidden">
+            {/* Background Video (Sequential Playback) */}
+            <div className="absolute inset-0 z-0 overflow-hidden">
+                <video
+                    key={currentVideo} // ensures re-render on source change
+                    src={videos[currentVideo]}
+                    autoPlay
+                    muted
+                    playsInline
+                    onEnded={handleVideoEnded}
+                    className="absolute inset-0 w-full h-full object-cover opacity-50"
+                ></video>
+            </div>
+
+            {/* Radial Gradient */}
+            <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(50,50,50,0.2)_1px,transparent_1px)] bg-[length:30px_30px]" />
 
             {/* Navigation */}
             <nav className="relative z-50 px-6 py-4 flex items-center justify-between bg-card backdrop-blur-md">
@@ -31,9 +87,15 @@ function Hero() {
                         <Menu className="w-6 h-6" />
                     </button>
                     <div className="hidden lg:flex items-center space-x-6">
-                        <a href="#" className="hover:text-purple-500 transition-colors">Products</a>
-                        <a href="#" className="hover:text-purple-500 transition-colors">Collections</a>
-                        <a href="#" className="hover:text-purple-500 transition-colors">About</a>
+                        <a href="#" className="hover:text-purple-500 transition-colors">
+                            Products
+                        </a>
+                        <a href="#" className="hover:text-purple-500 transition-colors">
+                            Collections
+                        </a>
+                        <a href="#" className="hover:text-purple-500 transition-colors">
+                            About
+                        </a>
                     </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -50,14 +112,27 @@ function Hero() {
             <main className="relative min-h-[80vh] flex items-center">
                 <div className="container mx-auto px-6 py-12 grid lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-8">
-                        <h2 className="text-5xl lg:text-7xl font-bold leading-tight">
-                            Elevate Your
-                            <span className="block bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-                                Gaming Experience
-                            </span>
+                        <h2 className="hero-heading text-5xl lg:text-7xl font-bold leading-tight relative z-10">
+                            {words.map((word, wordIndex) => (
+                                <span key={wordIndex} className="inline-block word">
+                                    {word.split("").map((letter, letterIndex) => (
+                                        <span
+                                            key={letterIndex}
+                                            className={`inline-block letter ${wordIndex < 2
+                                                ? "text-white"
+                                                : "bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent"
+                                                }`}
+                                        >
+                                            {letter}
+                                        </span>
+                                    ))}
+                                    &nbsp;
+                                </span>
+                            ))}
                         </h2>
                         <p className="text-gray-400 text-lg max-w-lg">
-                            Discover precision-engineered gaming gear that pushes the boundaries of performance and style. Welcome to the future of gaming.
+                            Discover precision-engineered gaming gear that pushes the boundaries of
+                            performance and style. Welcome to the future of gaming.
                         </p>
                         <div className="flex items-center space-x-4">
                             <button className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center space-x-2 hover:opacity-90 transition-opacity">
@@ -68,14 +143,6 @@ function Hero() {
                                 Learn More
                             </button>
                         </div>
-                    </div>
-                    <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-3xl" />
-                        <img
-                            src="https://images.unsplash.com/photo-1615645465258-d6566f45f6f4?auto=format&fit=crop&w=800&q=80"
-                            alt="Gaming Mouse"
-                            className="relative w-full h-auto object-cover rounded-lg transform hover:scale-105 transition-transform duration-500"
-                        />
                     </div>
                 </div>
             </main>
@@ -124,7 +191,7 @@ function Hero() {
 
 function FeatureCard({ icon, title, description }) {
     return (
-        <div className="p-6 border border-white/10 rounded-lg hover:border-purple-500/50 transition-color">
+        <div className="p-6 border border-white/10 rounded-lg hover:border-purple-500/50 transition-colors">
             <div className="flex items-center space-x-4">
                 {icon}
                 <h3 className="text-lg font-semibold">{title}</h3>

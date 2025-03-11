@@ -35,13 +35,13 @@ const ShopByBrands = () => {
         {
             id: 6,
             name: "Pixelpad",
-            logo: "/placeholder.svg?height=50&width=120",
+            logo: "../src/assets/canva-modern-yellow-pixel-gamepad-studio-game-logo-WFVcImKH8mo-01.jpeg?height=50&width=120",
             className: "text-yellow-400",
         },
         {
             id: 7,
             name: "Hanover Gaming",
-            logo: "/placeholder.svg?height=50&width=120",
+            logo: "../src/assets/5b8c77c26270c9df7e18b2b5c84a6223-01.jpeg?height=50&width=120",
             className: "text-red-500",
         },
         {
@@ -53,7 +53,7 @@ const ShopByBrands = () => {
         {
             id: 9,
             name: "Gaming Gear",
-            logo: "/placeholder.svg?height=50&width=120",
+            logo: "../src/assets/1e13b982595953.5d22d0dc7e827-01.jpeg?height=50&width=120",
             className: "text-orange-400",
         },
     ];

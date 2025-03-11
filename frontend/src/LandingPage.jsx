@@ -10,6 +10,7 @@ import CustomerReviews from "./components/CustomerReviews";
 import ProductCard from "./components/ProductCard";
 import BlogSection from "./components/BlogSection";
 import Footer from "./components/Footer";
+import ScrollAnimationComponent from "./components/ScrollAnimationComponent";
 
 
 
@@ -20,6 +21,7 @@ export default function LandingPage() {
             <Story></Story>
             <Categories></Categories>
             <TopRated></TopRated>
+            <ScrollAnimationComponent></ScrollAnimationComponent>
             <WeeklyDeals></WeeklyDeals>
             <ShopByBrands></ShopByBrands>
             <CustomerReviews></CustomerReviews>
