@@ -188,12 +188,15 @@ const ScrollAnimationComponent = () => {
         </div>
       </div>
 
-      {/* Transition Page Between Scroll Types */}
-      <div className="h-100 flex items-center justify-center bg-gray-900">
-        <h2 className="text-4xl font-bold text-white">
-          Explore More Gaming Essentials
-        </h2>
-      </div>
+     {/* Transition Page Between Scroll Types */}
+
+<div className="h-100 flex flex-col items-center justify-center bg-gradient-to-r from-black via-gray-900 to-black text-center px-6">
+  <h2 className="text-5xl font-extrabold text-white tracking-wide">
+    "Gaming Essentials, <span className="text-blue-500">By Gamers, For Gamers.</span>"
+  </h2>
+  
+</div>
+
 
       {/* Horizontal Scroll Section */}
       <div className="scroll-section horizontal-section overflow-hidden">
@@ -314,20 +317,12 @@ const ScrollAnimationComponent = () => {
       </div>
 
       {/* Final Section */}
-      <div className="overflow-hidden bg-gray-900">
-        <div className="px-10">
-          <div className="max-w-4xl mx-auto py-8">
-            <div className="max-w-5xl mx-auto">
-              <h1
-                className="text-5xl h-[50vh] flex items-center justify-center text-white"
-                style={{ textShadow: '0.04em 0.04rem 0 #81b5ab' }}
-              >
-                Level Up Your Game!
-              </h1>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="w-full h-[40vh] flex flex-col items-center justify-center bg-gradient-to-r from-black via-gray-900 to-black text-center px-6">
+  <h1 className="text-5xl font-extrabold text-white tracking-wide">
+    "Level Up Your Game!"
+  </h1>
+</div>
+
     </main>
   );
 };

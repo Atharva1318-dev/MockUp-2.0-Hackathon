@@ -10,24 +10,22 @@ import CustomerReviews from "./components/CustomerReviews";
 import ProductCard from "./components/ProductCard";
 import BlogSection from "./components/BlogSection";
 import Footer from "./components/Footer";
-import ScrollAnimationComponent from "./components/ScrollAnimationComponent";
 
 
 
 export default function LandingPage() {
     return (
         <>
-            <Hero></Hero>
-            <Story></Story>
-            <Categories></Categories>
+            {/* <Hero></Hero>
+            <Story></Story>*/}
+            {/* <Categories></Categories> */}
             <TopRated></TopRated>
-            <ScrollAnimationComponent></ScrollAnimationComponent>
-            <WeeklyDeals></WeeklyDeals>
-            <ShopByBrands></ShopByBrands>
+            {/* <WeeklyDeals></WeeklyDeals> */}
+            {/* <ShopByBrands></ShopByBrands>
             <CustomerReviews></CustomerReviews>
             <ProductCard></ProductCard>
             <BlogSection></BlogSection>
-            <Footer></Footer>
+            <Footer></Footer> */}
         </>
     )
 }
