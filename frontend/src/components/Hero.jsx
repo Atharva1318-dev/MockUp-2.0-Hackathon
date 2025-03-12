@@ -191,7 +191,7 @@ function Hero() {
                         <FeatureCard
                             icon={<Truck className="w-8 h-8 text-purple-500" />}
                             title="Free Shipping"
-                            description="Free shipping on all orders over $100"
+                            description="Free shipping on all orders over &#8377;100"
                         />
                         <FeatureCard
                             icon={<RotateCcw className="w-8 h-8 text-purple-500" />}
