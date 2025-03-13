@@ -18,7 +18,7 @@ Razer is the world’s leading lifestyle brand for gamers, delivering high-perfo
 ## Live Demo
 
 The project is hosted on Render. Check out the live demo here:  
-[Live Demo on Render]([https://your-render-url.com](https://razer-hackathon-frontend.onrender.com))  
+https://razer-hackathon-frontend.onrender.com 
 
 ---
 
