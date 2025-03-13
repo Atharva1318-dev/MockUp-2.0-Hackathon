@@ -8,22 +8,22 @@ export default function Categories() {
     const categories = [
         {
             title: "Keyboards",
-            img: "../src/assets/keyboard-with-gold-bars-white-background-3d-illustration.jpg?height=200&width=300",
+            img: "https://res.cloudinary.com/dkpgnq7ym/image/upload/v1741877688/keyboard-with-gold-bars-white-background-3d-illustration_hhqhom.jpg?height=200&width=300",
             link: "#",
         },
         {
             title: "Gaming Mouse",
-            img: "../src/assets/De1009086www.tiktarh.com_.jpg?height=200&width=300",
+            img: "https://res.cloudinary.com/dkpgnq7ym/image/upload/v1741879073/De1009086www.tiktarh.com__tne9uf.jpg?height=200&width=300",
             link: "#",
         },
         {
             title: "Headphones",
-            img: "../src/assets/beautiful-gaming-headphone-isolated-transparent-background_84443-1553-removebg-preview.png?height=200&width=300",
+            img: "https://res.cloudinary.com/dkpgnq7ym/image/upload/v1741879127/beautiful-gaming-headphone-isolated-transparent-background_84443-1553-removebg-preview_aezxnh.png?height=200&width=300",
             link: "#",
         },
         {
             title: "Gaming Controllers",
-            img: "../src/assets/28788924_03june22_game_controller_icon_05-01-removebg-preview.png?height=200&width=300",
+            img: "https://res.cloudinary.com/dkpgnq7ym/image/upload/v1741879164/28788924_03june22_game_controller_icon_05-01-removebg-preview_a0uhow.png?height=200&width=300",
             link: "#",
         },
     ];
@@ -32,13 +32,13 @@ export default function Categories() {
         {
             title: "Vortex Reaper",
             description: "Unparalleled Precision and Control for the Ultimate Gaming Edge",
-            img: "../src/assets/generation-white-game-controller-isolated-black-background-with-colored-lights-illuminating-it-close-up-selective-focus_442713-2607.jpg?height=600&width=600",
+            img: "https://res.cloudinary.com/dkpgnq7ym/image/upload/v1741879221/generation-white-game-controller-isolated-black-background-with-colored-lights-illuminating-it-close-up-selective-focus_442713-2620_ewizqw.jpg?height=600&width=600",
             link: "#",
         },
         {
             title: "Quantum Pro",
             description: "The Quantum Pro Redefines Immersive Gaming Audio",
-            img: "../src/assets/modern-high-quality-wireless-ear-headphones-neon-trendy-style_97245-1659.jpg?height=400&width=600",
+            img: "https://res.cloudinary.com/dkpgnq7ym/image/upload/v1741879220/modern-high-quality-wireless-ear-headphones-neon-trendy-style_97245-1659_wcc6v6.jpg?height=400&width=600",
             link: "#",
         },
     ];

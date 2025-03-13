@@ -1,11 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import cust1 from '../assets/cust1.jpeg'; // Adjust path according to your structure
-import cust2 from '../assets/cust2.jpg';
-import cust3 from '../assets/cust3.jpg';
-import cust4 from '../assets/cust4.jpg';
-import cust5 from '../assets/cust5.jpg';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const CustomerReviews = () => {
@@ -170,21 +166,21 @@ const CustomerReviews = () => {
       name: "John Smith",
       location: "From New York",
       text: "Incredible gaming experience!",
-      imageUrl: cust1,
+      imageUrl: 'https://res.cloudinary.com/dkpgnq7ym/image/upload/v1741878473/cust1_awshfd.jpg',
       gradient: "linear-gradient(to right, #9333ea, #d946ef)",
     },
     {
       name: "Mark Wilson",
       location: "From London",
       text: "Amazing build quality!",
-      imageUrl: cust2,
+      imageUrl: 'https://res.cloudinary.com/dkpgnq7ym/image/upload/v1741878471/f9cbd9b4329d8a4d3d88243d59f828ce_wsd9cd.jpg',
       gradient: "linear-gradient(to right, #2563eb, #38bdf8)",
     },
     {
       name: "Sally H. McDuffie",
       location: "From California",
       text: "Transformed my gaming!",
-      imageUrl: cust3,
+      imageUrl: 'https://res.cloudinary.com/dkpgnq7ym/image/upload/v1741878472/cust3_suufn1.jpg',
       isMain: true,
       gradient: "linear-gradient(to right, #db2777, #f472b6)",
     },
@@ -192,14 +188,14 @@ const CustomerReviews = () => {
       name: "Emily Chen",
       location: "From Toronto",
       text: "Super comfortable!",
-      imageUrl: cust4,
+      imageUrl: 'https://res.cloudinary.com/dkpgnq7ym/image/upload/v1741878473/cust4_yw2j8h.jpg',
       gradient: "linear-gradient(to right, #16a34a, #4ade80)",
     },
     {
       name: "Carlos Rodriguez",
       location: "From Madrid",
       text: "Perfect for gaming!",
-      imageUrl: cust5,
+      imageUrl: 'https://res.cloudinary.com/dkpgnq7ym/image/upload/v1741878473/cust5_bwo0qf.jpg',
       gradient: "linear-gradient(to right, #4f46e5, #818cf8)",
     },
   ];
@@ -218,9 +214,8 @@ const CustomerReviews = () => {
             <div
               key={index}
               ref={addToRefs}
-              className={`review-card relative rounded-lg overflow-hidden h-96 transition-all duration-300 cursor-pointer shadow-lg ${
-                review.isMain ? "md:col-span-1" : ""
-              }`}
+              className={`review-card relative rounded-lg overflow-hidden h-96 transition-all duration-300 cursor-pointer shadow-lg ${review.isMain ? "md:col-span-1" : ""
+                }`}
               style={{
                 background: `url(${review.imageUrl})`,
                 backgroundSize: "cover",

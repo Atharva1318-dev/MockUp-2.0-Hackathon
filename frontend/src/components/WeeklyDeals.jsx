@@ -122,7 +122,7 @@ const WeeklyDeals = () => {
                 {/* Right side - Headphones image */}
                 <div className="w-1/2 flex justify-center items-center">
                     <img
-                        src="../src/assets/headphones-isolated-transparent-background-headphone-day-technology-day_1121752-51822-removebg-preview.png?height=500&width=500"
+                        src="https://res.cloudinary.com/dkpgnq7ym/image/upload/v1741878351/headphones-isolated-transparent-background-headphone-day-technology-day_1121752-51822-removebg-preview_l5os9e.png?height=500&width=500"
                         alt="Gaming Headphones"
                         className="w-[550px] h-auto object-contain transform translate-y-4 image-drop-shadow weeklyDealsHeadphone"
                     />

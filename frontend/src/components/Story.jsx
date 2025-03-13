@@ -1,5 +1,5 @@
 import { Play, ArrowUpRight } from "lucide-react";
-import ourstory from "/src/assets/ourstory.mp4";
+const ourstory = "https://res.cloudinary.com/dkpgnq7ym/video/upload/v1741877691/ourstory_iwdose.mp4";
 
 export default function GamingStorySection() {
   return (

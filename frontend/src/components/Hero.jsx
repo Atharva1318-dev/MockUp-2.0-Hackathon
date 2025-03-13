@@ -12,8 +12,8 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import video1 from "../assets/8128222-uhd_3840_2160_25fps.mp4";
-import video2 from "../assets/13057075_3840_2160_24fps.mp4";
+const video1 = "https://res.cloudinary.com/dkpgnq7ym/video/upload/v1741877726/8128222-uhd_3840_2160_25fps_vzaw14.mp4";
+const video2 = "https://res.cloudinary.com/dkpgnq7ym/video/upload/v1741877724/13057075_3840_2160_24fps_aroa0d.mp4";
 
 function Hero() {
     const videos = [video1, video2];
@@ -53,10 +53,10 @@ function Hero() {
             }
         );
 
-        // Animate feature cards, but only once we scroll down to the .features-section
+        // Animate feature cards when scrolling down to the .features-section
         gsap.fromTo(
             ".feature-card",
-            { opacity: 0, y: 50 }, // start fully transparent and slightly below
+            { opacity: 0, y: 50 },
             {
                 opacity: 1,
                 y: 0,
@@ -64,8 +64,8 @@ function Hero() {
                 ease: "power4.out",
                 stagger: 0.2,
                 scrollTrigger: {
-                    trigger: ".features-section", // wrapper for feature cards
-                    start: "top 80%", // adjust to taste (e.g. "top 70%", "bottom 90%", etc.)
+                    trigger: ".features-section",
+                    start: "top 80%",
                     toggleActions: "play none none reverse",
                 },
             }
@@ -155,8 +155,8 @@ function Hero() {
                                         <span
                                             key={letterIndex}
                                             className={`inline-block letter ${wordIndex < 2
-                                                ? "text-white"
-                                                : "bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent"
+                                                    ? "text-white"
+                                                    : "bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent"
                                                 }`}
                                         >
                                             {letter}
@@ -184,7 +184,7 @@ function Hero() {
                 </div>
             </main>
 
-            {/* Features Grid (Add a wrapper class for scroll trigger) */}
+            {/* Features Grid */}
             <section className="features-section relative z-10 bg-card backdrop-blur-md py-16">
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
