@@ -41,7 +41,6 @@ Watch the demo video to see the landing page in action:
 
 Other dependencies include:
 - @gsap/react
-- @lottiefiles/dotlottie-react
 - lucide-react
 
 ---
