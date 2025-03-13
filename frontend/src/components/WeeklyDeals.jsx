@@ -4,6 +4,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+import Spline from '@splinetool/react-spline';
+
 const WeeklyDeals = () => {
     const [days, setDays] = useState(8);
     const [hours, setHours] = useState(16);
