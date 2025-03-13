@@ -25,7 +25,8 @@ https://razer-hackathon-frontend.onrender.com
 ## Demo Video
 
 Watch the demo video to see the landing page in action:  
-[Demo Video](https://github.com/user-attachments/assets/2c7b5057-0db2-489e-afd6-4931f49c7349)
+
+[Demo Video](https://github.com/user-attachments/assets/9b474983-dc98-48b5-90f3-fc9b1067f567)
 
 ---
 
